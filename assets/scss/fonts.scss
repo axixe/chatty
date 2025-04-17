@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'MPLUS';
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+  src:
+    local('MPLUS Light'),
+    url('@/assets/fonts/Mplus1p-Light.woff2') format('woff2'),
+    url('@/assets/fonts/Mplus1p-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MPLUS';
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  src:
+    local('MPLUS Regular'),
+    url('@/assets/fonts/Mplus1p-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/Mplus1p-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MPLUS';
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src:
+    local('MPLUS Bold'),
+    url('@/assets/fonts/Mplus1p-Bold.woff2') format('woff2'),
+    url('@/assets/fonts/Mplus1p-Bold.woff') format('woff');
+}

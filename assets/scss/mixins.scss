@@ -1,0 +1,19 @@
+@mixin h1-font {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@mixin body-p-bold {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@mixin body-p-light {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+@mixin body-p {
+  font-size: 14px;
+  font-weight: 400;
+}
