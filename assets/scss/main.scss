@@ -1,10 +1,10 @@
 @import 'fonts';
-@import 'variables';
 @import 'null';
+@import 'icons';
 
 body {
   @include body-p;
-  background: #1F1F1F;
+  background: $base;
   font-family: 'M PLUS', sans-serif;
   color: $white;
 }
