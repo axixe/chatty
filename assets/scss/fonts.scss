@@ -5,8 +5,8 @@
   font-style: normal;
   src:
     local('MPLUS Light'),
-    url('@/assets/fonts/Mplus1p-Light.woff2') format('woff2'),
-    url('@/assets/fonts/Mplus1p-Light.woff') format('woff');
+    url('@/assets/fonts/MPLUS1p-Light.woff2') format('woff2'),
+    url('@/assets/fonts/MPLUS1p-Light.woff') format('woff');
 }
 
 @font-face {
@@ -16,8 +16,8 @@
   font-style: normal;
   src:
     local('MPLUS Regular'),
-    url('@/assets/fonts/Mplus1p-Regular.woff2') format('woff2'),
-    url('@/assets/fonts/Mplus1p-Regular.woff') format('woff');
+    url('@/assets/fonts/MPLUS1p-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/MPLUS1p-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -27,6 +27,6 @@
   font-style: normal;
   src:
     local('MPLUS Bold'),
-    url('@/assets/fonts/Mplus1p-Bold.woff2') format('woff2'),
-    url('@/assets/fonts/Mplus1p-Bold.woff') format('woff');
+    url('@/assets/fonts/MPLUS1p-ExtraBold.woff2') format('woff2'),
+    url('@/assets/fonts/MPLUS1p-ExtraBold.woff') format('woff');
 }
