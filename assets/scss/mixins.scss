@@ -1,21 +1,25 @@
 @mixin h1-font {
   font-size: 24px;
-  font-weight: 700;
+  line-height: 36px;
+  font-weight: 800;
 }
 
-@mixin body-p-bold {
+@mixin h2-font {
   font-size: 16px;
-  font-weight: 400;
-}
-
-@mixin body-p-light {
-  font-size: 10px;
-  font-weight: 300;
+  line-height: 20px;
+  font-weight: 800;
 }
 
 @mixin body-p {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 400;
+}
+
+@mixin caption-p {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
 }
 
 @mixin disabled {
