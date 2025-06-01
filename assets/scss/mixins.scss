@@ -21,3 +21,9 @@
   line-height: 16px;
   font-weight: 300;
 }
+
+@mixin disabled {
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+}

@@ -1,0 +1,17 @@
+h1,
+.h1 {
+  @include h1-font;
+}
+
+h2,
+.h2 {
+  @include h2-font;
+}
+
+.body-p {
+  @include body-p;
+}
+
+.caption-p {
+  @include caption-p;
+}
