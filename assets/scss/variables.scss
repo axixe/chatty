@@ -1,15 +1,17 @@
-$base: #121212;
-$base-medium: #1F1F1F;  // Вторичный фон (сообщения собеседника)
-$base-light: #A0A0A0; // Вторичный текст (даты, статусы)
+$color-base: #18181B;
+$color-base-dark: #121212;
+$color-base-medium: #29252F;
+$color-base-light: #402E58;
 
-$accent: #2E7D32;       // Основной акцент (кнопки, выделение)
-$accent-dark: #1B5E20;  // Акцент при наведении/активном состоянии
-$accent-light: #4CAF50; // Светлый акцент (иконки, индикаторы)
+$color-accent: #FFA600;
 
-$complement: #81C784;          // Светло-зелёный (ссылки, ховеры)
-$complement-dark: #388E3C;     // Тёмный вариант complement
+$color-white: #FFFFFF;
+$color-grey: #A0A0A0;
 
-$white: #ffffff;
+$indent-xs: 4px;
+$indent-s: 8px;
+$indent-m: 16px;
+$indent-l: 20px;
+$indent-xl: 40px;
 
-$error: #FF5252;
-$color-success: #59b100;
+$border-radius-m: 12px;
