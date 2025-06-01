@@ -17,3 +17,9 @@
   font-size: 14px;
   font-weight: 400;
 }
+
+@mixin disabled {
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+}
