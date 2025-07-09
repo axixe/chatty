@@ -9,7 +9,7 @@
     <div class="chat-block__content">
       <div class="chat-block__info">
         <span class="h2">{{ userData.name }}</span>
-        <p class="caption-p">{{ userData.message }}</p>
+        <p class="chat-block__message caption-p">{{ userData.message }}</p>
       </div>
 
       <svg class="icon-20">
@@ -62,12 +62,21 @@ defineProps<Props>()
     align-items: flex-end;
     gap: $indent-l;
     width: 100%;
+    min-width: 0;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     gap: $indent-s;
+    min-width: 0;
+  }
+
+  &__message {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   svg {
