@@ -9,18 +9,22 @@
     <div class="chat-block__content">
       <div class="chat-block__info">
         <span class="h2">{{ userData.name }}</span>
-        <p class="chat-block__message caption-p">{{ userData.message }}</p>
+        <p class="chat-block__message caption-p">
+          {{ userData.message }}
+        </p>
       </div>
 
       <svg class="icon-20">
-        <use :href="`/images/svg/icon-${userData.isRead ? 'read' : 'noread'}.svg#icon`"></use>
+        <use
+          :href="`/images/svg/icon-${userData.isRead ? 'read' : 'noread'}.svg#icon`"
+        />
       </svg>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ChatBlockUserData } from "~/global/types/ChatBlockUserData";
+import type { ChatBlockUserData } from '~/global/types/ChatBlockUserData'
 
 interface Props {
   userData: ChatBlockUserData

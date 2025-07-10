@@ -7,14 +7,14 @@
 
     <BaseImage
       :image="avatar"
-      :image-options="{ alt: 'avatar', width: 50, height: 50 }"8
+      :image-options="{ alt: 'avatar', width: 50, height: 50 }"
       class="chat-sidebar-header__avatar"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Image } from "~/global/types/Image/Image";
+import type { Image } from '~/global/types/Image/Image'
 
 interface Props {
   avatar: Image

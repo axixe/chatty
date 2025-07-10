@@ -39,7 +39,7 @@ const model = defineModel<string>('modelValue')
   }
 
   &::placeholder {
-    transition: color 0.3s ease
+    transition: color 0.3s ease;
   }
 
   &:read-only {

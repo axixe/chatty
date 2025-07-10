@@ -3,13 +3,17 @@
     <span class="chat-list__title">Chat list</span>
 
     <div class="chat-list__list-wrapper">
-      <BaseChatBlock v-for="chatBlock in chats" :user-data="chatBlock" />
+      <BaseChatBlock
+        v-for="(chatBlock, index) in chats"
+        :key="index"
+        :user-data="chatBlock"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ChatBlockUserData } from "~/global/types/ChatBlockUserData";
+import type { ChatBlockUserData } from '~/global/types/ChatBlockUserData'
 
 interface Props {
   chats: ChatBlockUserData[]

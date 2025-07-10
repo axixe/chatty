@@ -7,8 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import ChatSidebarHeader from "~/components/ChatSidebar/ChatSidebarHeader.vue";
-
+import ChatSidebarHeader from '~/components/ChatSidebar/ChatSidebarHeader.vue'
 </script>
 
 <style scoped lang="scss">
