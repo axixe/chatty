@@ -7,8 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { chatBlockMock } from "~/global/mockData/chatBlockMock";
-
+import { chatBlockMock } from '~/global/mockData/chatBlockMock'
 </script>
 
 <style scoped lang="scss">
