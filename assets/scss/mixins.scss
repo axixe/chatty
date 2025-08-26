@@ -27,3 +27,29 @@
   user-select: none;
   cursor: default;
 }
+
+@mixin scrollbar($isInvisibleScroll: false) {
+  @media screen and (min--moz-device-pixel-ratio: 0), not screen and (hover) {
+    scrollbar-color: $color-grey;
+  }
+
+  @media only screen and (hover: hover) {
+    &::-webkit-scrollbar {
+      @if ($isInvisibleScroll) {
+        width: 0;
+      } @else {
+        width: 3px;
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background: #FFFFFF41;
+      cursor: pointer;
+
+      &:hover {
+        background: #FFFFFF7F;
+      }
+    }
+  }
+}

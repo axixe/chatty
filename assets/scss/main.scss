@@ -5,6 +5,7 @@
 
 body {
   @include body-p;
+  overflow: hidden;
   background: $color-base-dark;
   font-family: 'MPLUS', sans-serif;
   color: $color-white;
