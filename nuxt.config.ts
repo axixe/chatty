@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/scss/main.scss'],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -11,4 +12,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  modules: ['@nuxt/eslint'],
+  compatibilityDate: '2025-08-26',
 })
