@@ -1,22 +1,38 @@
 <template>
   <div class="chat-block">
-    <BaseImage
-      :image="{ src: userData.avatar.src }"
-      :image-options="{ width: 56, height: 56, alt: 'Avatar' }"
-      class="chat-block__avatar"
-    />
+    <div class="chat-block__avatar-wrapper">
+      <BaseImage
+        :image="{ src: userData.avatar.src }"
+        :image-options="{ width: 56, height: 56, alt: 'Avatar' }"
+        class="chat-block__avatar"
+      />
+
+      <span class="chat-block__online-status" />
+    </div>
 
     <div class="chat-block__content">
       <div class="chat-block__info">
         <span class="h2">{{ userData.name }}</span>
-        <p class="chat-block__message caption-p">
+
+        <TypingIndicator v-if="isTyping" />
+
+        <p v-else class="chat-block__message caption-p">
+          <span
+            v-if="userData.is_read !== null"
+            class="chat-block__message-badge"
+            >You:</span
+          >
           {{ userData.message }}
         </p>
       </div>
 
-      <svg class="icon-20">
+      <svg
+        v-if="userData.is_read != null && !isTyping"
+        class="chat-block__read-status icon-20"
+        :class="{ 'chat-block__read-status_read': userData.is_read }"
+      >
         <use
-          :href="`/images/svg/icon-${userData.isRead ? 'read' : 'noread'}.svg#icon`"
+          :href="`/images/svg/icon-${userData.is_read ? 'read' : 'noread'}.svg#icon`"
         />
       </svg>
     </div>
@@ -25,12 +41,16 @@
 
 <script setup lang="ts">
 import type { ChatBlockUserData } from '~/global/types/ChatBlockUserData'
+import TypingIndicator from '~/components/ui/TypingIndicator.vue'
 
 interface Props {
   userData: ChatBlockUserData
+  isTyping?: boolean
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  isTyping: false,
+})
 </script>
 
 <style scoped lang="scss">
@@ -48,6 +68,10 @@ defineProps<Props>()
   @media screen and (hover: hover) {
     &:hover {
       background: $color-base-medium;
+
+      .chat-block__online-status {
+        border-color: $color-base-medium;
+      }
     }
   }
 
@@ -55,8 +79,25 @@ defineProps<Props>()
     background: $color-base-medium;
   }
 
-  &__avatar {
+  &__avatar-wrapper {
+    position: relative;
     flex-shrink: 0;
+  }
+
+  &__online-status {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: $color-accent;
+    border: 2px solid $color-base;
+    transition: border-color 0.3s ease;
+  }
+
+  &__avatar {
     border-radius: 100%;
   }
 
@@ -83,9 +124,17 @@ defineProps<Props>()
     text-overflow: ellipsis;
   }
 
-  svg {
+  &__message-badge {
+    color: $color-grey;
+  }
+
+  &__read-status {
     flex-shrink: 0;
-    fill: $color-accent;
+    fill: $color-grey;
+
+    &_read {
+      fill: $color-accent;
+    }
   }
 }
 </style>

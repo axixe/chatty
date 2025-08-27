@@ -15,6 +15,7 @@ import { chatBlockMock } from '~/global/mockData/chatBlockMock'
   display: flex;
   flex-direction: column;
   gap: $indent-xl;
-  padding: $indent-l;
+  min-height: 0;
+  padding: $indent-l $indent-l 0;
 }
 </style>

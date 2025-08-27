@@ -1,14 +1,10 @@
 <template>
   <div class="chat-list">
-    <span class="chat-list__title">Chat list</span>
-
-    <div class="chat-list__list-wrapper">
-      <BaseChatBlock
-        v-for="(chatBlock, index) in chats"
-        :key="index"
-        :user-data="chatBlock"
-      />
-    </div>
+    <BaseChatBlock
+      v-for="(chatBlock, index) in chats"
+      :key="index"
+      :user-data="chatBlock"
+    />
   </div>
 </template>
 
@@ -24,18 +20,10 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 .chat-list {
+  @include scrollbar(true);
   display: flex;
   flex-direction: column;
-  gap: $indent-l;
-
-  &__title {
-    color: $color-grey;
-  }
-
-  &__list-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: $indent-xs;
-  }
+  gap: $indent-xs;
+  overflow: auto;
 }
 </style>

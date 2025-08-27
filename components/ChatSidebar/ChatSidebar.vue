@@ -12,8 +12,12 @@ import ChatSidebarHeader from '~/components/ChatSidebar/ChatSidebarHeader.vue'
 
 <style scoped lang="scss">
 .chat-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   max-width: 400px;
   height: 100vh;
-  border-right: 1px solid $color-base-light;
+  border-right: 1px solid $color-base-medium;
+  background: $color-base;
 }
 </style>
