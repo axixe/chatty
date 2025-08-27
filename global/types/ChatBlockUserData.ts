@@ -4,5 +4,5 @@ export interface ChatBlockUserData {
   avatar: Image
   name: string
   message: string
-  isRead: boolean
+  is_read: boolean | null
 }
