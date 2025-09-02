@@ -10,21 +10,21 @@
       <span class="chat-block__online-status" />
     </div>
 
-    <div class="chat-block__content">
-      <div class="chat-block__info">
-        <span class="h2">{{ userData.name }}</span>
+    <div class="chat-block__user-data">
+      <span class="h2">{{ userData.name }}</span>
 
-        <TypingIndicator v-if="isTyping" />
+      <TypingIndicator v-if="isTyping" />
 
-        <p v-else class="chat-block__message caption-p">
-          <span
-            v-if="userData.is_read !== null"
-            class="chat-block__message-badge"
-            >You:</span
-          >
-          {{ userData.message }}
-        </p>
-      </div>
+      <p v-else class="chat-block__message caption-p">
+        <span v-if="userData.is_read !== null" class="chat-block__message-badge"
+          >You:</span
+        >
+        {{ userData.message }}
+      </p>
+    </div>
+
+    <div class="chat-block__status-wrapper">
+      <span class="caption-p">{{ userData.timestamp }}</span>
 
       <svg
         v-if="userData.is_read != null && !isTyping"
@@ -84,6 +84,10 @@ withDefaults(defineProps<Props>(), {
     flex-shrink: 0;
   }
 
+  &__avatar {
+    border-radius: 100%;
+  }
+
   &__online-status {
     position: absolute;
     right: 0;
@@ -97,23 +101,12 @@ withDefaults(defineProps<Props>(), {
     transition: border-color 0.3s ease;
   }
 
-  &__avatar {
-    border-radius: 100%;
-  }
-
-  &__content {
+  &__user-data {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    gap: $indent-l;
-    width: 100%;
-    min-width: 0;
-  }
-
-  &__info {
-    display: flex;
     flex-direction: column;
     gap: $indent-s;
+    width: 100%;
     min-width: 0;
   }
 
@@ -125,6 +118,16 @@ withDefaults(defineProps<Props>(), {
   }
 
   &__message-badge {
+    color: $color-grey;
+  }
+
+  &__status-wrapper {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: $indent-s;
+    height: 100%;
+    padding: $indent-s 0;
     color: $color-grey;
   }
 

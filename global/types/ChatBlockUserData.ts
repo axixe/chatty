@@ -5,4 +5,5 @@ export interface ChatBlockUserData {
   name: string
   message: string
   is_read: boolean | null
+  timestamp: string
 }
