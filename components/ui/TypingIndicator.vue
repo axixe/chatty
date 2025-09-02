@@ -37,7 +37,7 @@
     width: 4px;
     height: 4px;
     border-radius: 100%;
-    background: $color-grey;
+    background: $color-accent;
     animation: indicator-animation 0.6s infinite ease-in-out;
 
     &:nth-child(1) {
