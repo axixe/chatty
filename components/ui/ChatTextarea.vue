@@ -21,53 +21,49 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
+
+interface Props {
+  maxRows?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  maxRows: 5,
+})
 
 const baseTextareaRef = ref<ComponentPublicInstance | null>(null)
 const message = ref('')
 
-const maxRows = 5
 const lineHeight = ref<number>(0)
 
 const getTextareaElement = () => {
-  const component = baseTextareaRef.value
-  if (!component) {
-    return null
-  }
-
-  return component.$el?.querySelector('textarea') ?? null
+  const element = baseTextareaRef.value?.$el?.querySelector('textarea')
+  return (element as HTMLTextAreaElement | null) ?? null
 }
 
 const ensureLineHeight = (textarea: HTMLTextAreaElement) => {
-  if (lineHeight.value) {
-    return
-  }
+  if (lineHeight.value) return
 
   const styles = window.getComputedStyle(textarea)
   const parsedLineHeight = parseFloat(styles.lineHeight)
 
-  if (Number.isFinite(parsedLineHeight)) {
-    lineHeight.value = parsedLineHeight
-    return
-  }
-
-  const fontSize = parseFloat(styles.fontSize)
-  lineHeight.value = Number.isFinite(fontSize) ? fontSize * 1.2 : 20
+  lineHeight.value =
+    Number.isFinite(parsedLineHeight) && parsedLineHeight > 0
+      ? parsedLineHeight
+      : 20
 }
 
 const resizeTextarea = () => {
   const textarea = getTextareaElement()
 
-  if (!textarea) {
-    return
-  }
+  if (!textarea) return
 
   ensureLineHeight(textarea)
 
   textarea.style.height = 'auto'
 
-  const maxHeight = lineHeight.value * maxRows
+  const rowsLimit = Math.max(props.maxRows, 1)
+  const maxHeight = lineHeight.value * rowsLimit
   const scrollHeight = textarea.scrollHeight
   const nextHeight = Math.min(scrollHeight, maxHeight)
 
@@ -76,13 +72,18 @@ const resizeTextarea = () => {
   textarea.style.maxHeight = `${maxHeight}px`
 }
 
-watch(message, async () => {
-  await nextTick()
+watch(message, () => {
   resizeTextarea()
 })
 
-onMounted(async () => {
-  await nextTick()
+watch(
+  () => props.maxRows,
+  () => {
+    resizeTextarea()
+  },
+)
+
+onMounted(() => {
   const textarea = getTextareaElement()
 
   if (textarea) {
@@ -104,13 +105,6 @@ onMounted(async () => {
 
   &__field {
     flex: 1;
-
-    :deep(textarea) {
-      width: 100%;
-      padding: 0;
-      border: 0;
-      background: transparent;
-    }
   }
 
   svg {

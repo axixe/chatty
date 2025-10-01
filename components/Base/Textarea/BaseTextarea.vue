@@ -38,10 +38,11 @@ const model = defineModel<string>('modelValue')
   width: 100%;
   max-height: 500px;
   overflow: hidden;
-  padding: 0 $indent-l;
+  padding: 0;
   resize: none;
-  background: $color-base-medium;
-  color: $color-white;
+  border: 0;
+  background: transparent;
+  color: inherit;
   transition:
     border-color 0.2s ease-in-out,
     color 0.2s ease-in-out;
