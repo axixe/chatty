@@ -22,7 +22,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   name: '',
-  placeholder: 'Message...',
+  placeholder: '',
   readonly: false,
   required: false,
   error: '',
